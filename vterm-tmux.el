@@ -46,6 +46,8 @@
 ;;; Acknowledgements:
 ;; Todd Goodall <tgoodall@utexas.edu>
 ;; For inspiration in the form of (the seemingly defunct) multi-tmux.el
+;; The good people at [[#emacs@irc.libera.chat][The Emacs IRC channel]],
+;; for their encouragement.
 
 ;;; Code:
 

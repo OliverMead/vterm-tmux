@@ -29,5 +29,6 @@ This package may be customised through the following variables:
   return the string to be used as
 
 * Acknoledgements
-Todd Goodall <tgoodall@utexas.edu>
-For inspiration in the form of (the seemingly defunct) [[https://github.com/beyondmetis/multi-term-tmux][multi-term-tmux.el]]
++ Todd Goodall <tgoodall@utexas.edu>
+  For inspiration in the form of (the seemingly defunct) [[https://github.com/beyondmetis/multi-term-tmux][multi-term-tmux.el]].
++ The good people at [[#emacs@irc.libera.chat][The Emacs IRC channel]], for their encouragement.
