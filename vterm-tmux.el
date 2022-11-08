@@ -5,6 +5,7 @@
 ;; Author: Oliver J. Mead <oliver.j.mead@protonmail.com>
 ;; Keywords: terminals, convenience
 ;; Version: 0.2.1
+;; URL: https://github.com/OliverMead/vterm-tmux
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -130,17 +131,17 @@ conforming to TRAMP file-name syntax (including multi-hop)"
    (list (setq host-inp
                (if current-prefix-arg
                    (read-directory-name
-                     "In Directory: ")
-                nil))
-        (let*
-            ((default-directory (or host-inp default-directory))
-             (coll (cons vterm-tmux-default-session
-                         (vterm-tmux-list-sessions))))
+                    "In Directory: ")
+                 nil))
+         (let*
+             ((default-directory (or host-inp default-directory))
+              (coll (cons vterm-tmux-default-session
+                          (vterm-tmux-list-sessions))))
             (setq session-inp
-                  (completing-read
-                   "Session: " coll nil nil nil nil
-                   vterm-tmux-default-session)))
-        nil))
+                 (completing-read
+                  "Session: " coll nil nil nil nil
+                  vterm-tmux-default-session)))
+         nil))
 
   (let* ((default-directory (file-name-directory (or host default-directory)))
          (filename-tramp (condition-case err
