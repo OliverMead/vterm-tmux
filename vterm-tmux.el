@@ -44,9 +44,9 @@
 ;; `vterm-tmux-buffer-name-format' Function of HOSTNAME and SESSION to return the string to be used as
 
 ;;; Acknowledgements:
-;; Todd Goodall <tgoodall@utexas.edu>
+;; Todd Goodall <tgoodall@utexas.edu>,
 ;; For inspiration in the form of (the seemingly defunct) multi-tmux.el
-;; The good people at [[#emacs@irc.libera.chat][The Emacs IRC channel]],
+;; The good people at the Emacs IRC channel,
 ;; for their encouragement.
 
 ;;; Code:
