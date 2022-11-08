@@ -1,0 +1,33 @@
+#+title: vterm-tmux: Connect to TMux sessions anywhere.
+#+author: Oliver Mead <oliver.j.mead@protonmail.com>
+
+An extension of `multi-vterm.el', providing persistent terminal access
+through TMux (optionally over SSH using TRAMP).
+
+* TODO Installation
+** Dependencies
++ `vterm'
++ `multi-vterm'
+
+* Usage
+This package provides /one/ command:
++ `vterm-tmux' Attach to a tmux session.
+The raw prefix argument will indicate that the `default-directory' must
+be set before attaching to the session. This operation supports
+TRAMP paths.
+
+** Configuration
+This package may be customised through the following variables:
++ `vterm-tmux-default-session' The default name for a tmux session
++ `vterm-tmux-default-hostname' The default (host)name for local
+  connections
++ `vterm-tmux-connection-method' The tmux command used to connect to
+  the session
++ `vterm-tmux-env' A list of environment variables to explicitly pass
+  to the shell
++ `vterm-tmux-buffer-name-format' Function of HOSTNAME and SESSION to
+  return the string to be used as
+
+* Acknoledgements
+Todd Goodall <tgoodall@utexas.edu>
+For inspiration in the form of (the seemingly defunct) [[https://github.com/beyondmetis/multi-term-tmux][multi-term-tmux.el]]
