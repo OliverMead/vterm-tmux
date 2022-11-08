@@ -1,6 +1,6 @@
 ;;; vterm-tmux.el --- Connect to TMux sessions anywhere  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022  
+;; Copyright (C) 2022
 
 ;; Author: Oliver J. Mead <oliver.j.mead@protonmail.com>
 ;; Keywords: terminals, convenience
@@ -56,7 +56,7 @@
 (require 'multi-vterm)
 
 (defgroup vterm-tmux nil
-  "Connect to TMux sessions anywhere"
+  "Connect to TMux sessions anywhere."
   :group 'multi-vterm)
 
 (defcustom vterm-tmux-default-session "emacs-session"
@@ -65,42 +65,46 @@
   :group 'vterm-tmux)
 
 (defcustom vterm-tmux-default-hostname "localhost"
-  "The default (host)name for local connections, this does not need to
-be a valid hostname on your network."
+  "The default (host)name for local connections.
+This does not need to be a valid hostname on your network."
   :type 'string
   :group 'vterm-tmux)
 
 (defcustom vterm-tmux-connection-method "new -As"
-  "The tmux command used to connect to the session, the default will
-dynamically create or connect to [session name]."
+  "The tmux command used to connect to the session.
+The default will dynamically create or connect to [session name]."
   :type 'string
   :group 'vterm-tmux)
 
 (defcustom vterm-tmux-env '("TERM=xterm-256color")
-  "A list of environment variables to explicitly pass to the shell,
-as multi-hopping may lose some environment."
+  "A list of environment variables to explicitly pass to the shell.
+\(multi-hopping may lose some environment)"
   :type 'list
   :group 'vterm-tmux)
 
 (defun vterm-tmux-default-buffer-name-format (hostname session)
+  "Default buffer name formatter for `vterm-tmux'.
+HOSTNAME: the hostname of the buffer's TMux session.
+SESSION: the name of the buffer's TMux session."
   (format "%s-tmux-%s" hostname session))
 
 (defcustom vterm-tmux-buffer-name-format
   #'vterm-tmux-default-buffer-name-format
-  "Function of HOSTNAME and SESSION to return the string to be used as
-the buffer name of each session"
+  "Function of HOSTNAME, SESSION to generate the buffer name of each session."
   :type 'symbol
   :group 'vterm-tmux)
 
 (defmacro vterm-tmux-env ()
+  "Macro to create a shell's list of environment variables from variable `vterm-tmux-env'."
   `(mapconcat 'identity vterm-tmux-env " "))
 
 (defun tmux-session-split (session-list)
+  "Parse SESSION-LIST (tmux list-sessions output) for session names."
   (cl-loop for line in (split-string session-list "\n" t)
-           collect (car (split-string line ":" t))))
+             collect (car (split-string line ":" t))))
 
 (defun vterm-tmux-list-sessions ()
-  "List (tmux) sessions running, respecting `default-directory' "
+  "List (tmux) sessions running, respecting `default-directory'."
   (let ((sessions (shell-command-to-string "tmux list-sessions")))
     (if (string-match-p (regexp-quote "no server running on") sessions)
         nil
@@ -117,14 +121,14 @@ HOST indicates the (TRAMP style) user@host#port to connect with"
                                (vterm-tmux-env) " tmux "
                                vterm-tmux-connection-method " "
                                session "\'"))
-          (vterm-buffer-name-string (concat "*" term "*"))) 
+          (vterm-buffer-name-string (concat "*" term "*")))
       (vterm vterm-buffer-name-string)
       (with-current-buffer vterm-buffer-name-string
         (multi-vterm-internal))
       vterm-buffer-name-string)))
 
-(defun vterm-tmux (&optional host session-opt bufname)
-  "(Interactively) attach to tmux session SESSION-OPT
+(defun vterm-tmux (&optional dir session-opt bufname)
+  "(Interactively) attach to tmux session SESSION-OPT in directory DIR.
 The raw prefix argument indicates that an alternative dir should be used,
 conforming to TRAMP file-name syntax (including multi-hop)"
   (interactive
@@ -143,7 +147,7 @@ conforming to TRAMP file-name syntax (including multi-hop)"
                   vterm-tmux-default-session)))
          nil))
 
-  (let* ((default-directory (file-name-directory (or host default-directory)))
+  (let* ((default-directory (file-name-directory (or dir default-directory)))
          (filename-tramp (condition-case err
                              (tramp-dissect-file-name default-directory)
                            (error nil)))
