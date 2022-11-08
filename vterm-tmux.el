@@ -85,7 +85,7 @@ as multi-hopping may lose some environment."
   (format "%s-tmux-%s" hostname session))
 
 (defcustom vterm-tmux-buffer-name-format
-  'vterm-tmux-default-buffer-name-format
+  #'vterm-tmux-default-buffer-name-format
   "Function of HOSTNAME and SESSION to return the string to be used as
 the buffer name of each session"
   :type 'symbol
@@ -150,9 +150,8 @@ conforming to TRAMP file-name syntax (including multi-hop)"
                        (tramp-file-name-host filename-tramp)
                      vterm-tmux-default-hostname))
          (session (or session-opt vterm-tmux-default-session))
-         (name (or bufname (vterm-tmux-buffer-name-format
-                                   hostname
-                                   session))))
+         (name (or bufname (funcall vterm-tmux-buffer-name-format
+                                    hostname session))))
     (vterm-tmux-get name session)))
 
 
