@@ -5,6 +5,7 @@
 ;; Author: Oliver J. Mead <oliver.j.mead@protonmail.com>
 ;; Keywords: terminals, convenience
 ;; Version: 0.2.1
+;; Package-Requires (vterm multi-vterm)
 ;; URL: https://github.com/OliverMead/vterm-tmux
 
 ;; This program is free software; you can redistribute it and/or modify
