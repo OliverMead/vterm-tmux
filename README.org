@@ -28,7 +28,7 @@ This package may be customised through the following variables:
 + `vterm-tmux-buffer-name-format' Function of HOSTNAME and SESSION to
   return the string to be used as
 
-* Acknoledgements
+* Acknowledgements
 + Todd Goodall <tgoodall@utexas.edu>, for inspiration in the form of
   (the seemingly defunct) [[https://github.com/beyondmetis/multi-term-tmux][multi-term-tmux.el]].
 + The good people at the Emacs IRC channel, for their encouragement.

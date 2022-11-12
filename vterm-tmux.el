@@ -116,17 +116,20 @@ SESSION: the name of the buffer's TMux session."
 TERM indicates the name for the new terminal
 SESSION indicates the tmux session to attach to
 HOST indicates the (TRAMP style) user@host#port to connect with"
-  (with-temp-buffer
-    ;; (setq tmux-sessions (multi-tmux-list-sessions host))
-    (let ((vterm-shell (concat vterm-shell " -c \'"
-                               (vterm-tmux-env) " tmux "
-                               vterm-tmux-connection-method " "
-                               session "\'"))
-          (vterm-buffer-name-string (concat "*" term "*")))
-      (vterm vterm-buffer-name-string)
-      (with-current-buffer vterm-buffer-name-string
-        (multi-vterm-internal))
-      vterm-buffer-name-string)))
+  (let ((vterm-buffer-name-string (concat "*" term "*")))
+    (if (get-buffer vterm-buffer-name-string)
+        (switch-to-buffer vterm-buffer-name-string)
+      (with-temp-buffer
+          ;; (setq tmux-sessions (multi-tmux-list-sessions host))
+          (let ((vterm-shell (concat vterm-shell " -c \'"
+                                     (vterm-tmux-env) " tmux "
+                                     vterm-tmux-connection-method " "
+                                     session "\'"))
+                (vterm-buffer-name-string (concat "*" term "*")))
+            (vterm vterm-buffer-name-string)
+            (with-current-buffer vterm-buffer-name-string
+              (multi-vterm-internal))
+            vterm-buffer-name-string)))))
 
 (defun vterm-tmux (&optional dir session-opt bufname)
   "(Interactively) attach to tmux session SESSION-OPT in directory DIR.
