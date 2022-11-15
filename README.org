@@ -1,5 +1,5 @@
 #+title: vterm-tmux: Connect to TMux sessions anywhere.
-#+author: Oliver Mead <oliver.j.mead@protonmail.com>
+#+author: Oliver Mead <olivermead@olivermead.xyz>
 
 An extension of `multi-vterm.el', providing persistent terminal access
 through TMux (optionally over SSH using TRAMP).

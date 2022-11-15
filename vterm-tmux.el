@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2022
 
-;; Author: Oliver J. Mead <oliver.j.mead@protonmail.com>
+;; Author: Oliver J. Mead <olivermead@olivermead.xyz>
 ;; Keywords: terminals, convenience
 ;; Version: 0.2.1
 ;; Package-Requires (vterm multi-vterm)
