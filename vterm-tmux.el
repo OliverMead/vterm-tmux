@@ -114,8 +114,7 @@ SESSION: the name of the buffer's TMux session."
 (defun vterm-tmux-get (term session)
   "Attach to a (possibly remote) tmux session.
 TERM indicates the name for the new terminal
-SESSION indicates the tmux session to attach to
-HOST indicates the (TRAMP style) user@host#port to connect with"
+SESSION indicates the tmux session to attach to"
   (let ((vterm-buffer-name-string (concat "*" term "*")))
     (if (get-buffer vterm-buffer-name-string)
         (switch-to-buffer vterm-buffer-name-string)
