@@ -4,7 +4,7 @@
 
 ;; Author: Oliver J. Mead <olivermead@olivermead.xyz>
 ;; Keywords: terminals, convenience
-;; Version: 0.3.0
+;; Version: 0.3.1
 ;; Package-Requires (vterm multi-vterm)
 ;; URL: https://github.com/OliverMead/vterm-tmux
 
@@ -171,7 +171,7 @@ The buffer name will be unique to the project."
 
 (defun vterm-tmux-default-binding ()
   "Bind 't' in `project-prefix-map' to `vterm-tmux-project'."
-  (bind-key 'project-prefix-map (kbd "t") 'vterm-tmux-project))
+  (bind-key project-prefix-map (kbd "t") 'vterm-tmux-project))
 
 (provide 'vterm-tmux)
 ;;; vterm-tmux.el ends here
