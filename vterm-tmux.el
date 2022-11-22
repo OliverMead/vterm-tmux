@@ -171,7 +171,7 @@ The buffer name will be unique to the project."
 
 (defun vterm-tmux-default-binding ()
   "Bind 't' in `project-prefix-map' to `vterm-tmux-project'."
-  (bind-key project-prefix-map (kbd "t") 'vterm-tmux-project))
+  (define-key project-prefix-map (kbd "t") 'vterm-tmux-project))
 
 (provide 'vterm-tmux)
 ;;; vterm-tmux.el ends here
