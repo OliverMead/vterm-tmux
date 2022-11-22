@@ -31,11 +31,20 @@
 ;; `multi-vterm'
 
 ;;; Commands:
-;; This package provides /one/ command:
+;; This package provides /two/ commands:
 ;;    `vterm-tmux' Attach to a tmux session.
 ;; The raw prefix argument will indicate that the `default-directory' must
 ;; be set before attaching to the session. This operation supports
 ;; TRAMP paths.
+;;    `vterm-tmux-project' Attach to a project-local (project.el) tmux session.
+;; The session name will be based on the project root. The buffer name will be
+;; based on the project root and the current host.
+;; (Both should be unique to the project)
+
+;;; Util Functions:
+;; This package provides:
+;;    `vterm-tmux-default-binding' Which adds `vterm-tmux-project' to `project-prefix-map'.
+;; Calling this function will bind '<project-prefix> t' to call `vterm-tmux-project'.
 
 ;;; Custom Variables:
 ;; This package may be customised through the following variables:
