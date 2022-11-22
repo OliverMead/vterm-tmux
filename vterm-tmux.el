@@ -4,7 +4,7 @@
 
 ;; Author: Oliver J. Mead <olivermead@olivermead.xyz>
 ;; Keywords: terminals, convenience
-;; Version: 0.3.1
+;; Version: 0.3.2
 ;; Package-Requires (vterm multi-vterm)
 ;; URL: https://github.com/OliverMead/vterm-tmux
 
@@ -151,8 +151,7 @@ conforming to TRAMP file-name syntax (including multi-hop)"
                  nil))
          (let*
              ((default-directory (or host-inp default-directory))
-              (coll (cons vterm-tmux-default-session
-                          (vterm-tmux-list-sessions))))
+              (coll (vterm-tmux-list-sessions)))
             (setq session-inp
                  (completing-read
                   "Session: " coll nil nil nil nil
