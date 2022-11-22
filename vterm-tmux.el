@@ -4,7 +4,7 @@
 
 ;; Author: Oliver J. Mead <olivermead@olivermead.xyz>
 ;; Keywords: terminals, convenience
-;; Version: 0.2.1
+;; Version: 0.3.0
 ;; Package-Requires (vterm multi-vterm)
 ;; URL: https://github.com/OliverMead/vterm-tmux
 
@@ -162,6 +162,16 @@ conforming to TRAMP file-name syntax (including multi-hop)"
                                     hostname session))))
     (vterm-tmux-get name session)))
 
+(defun vterm-tmux-project ()
+  "Open vterm-tmux for the current project at the project root.
+The buffer name will be unique to the project."
+  (interactive)
+  (let ((default-directory (project-root (project-current))))
+    (vterm-tmux nil (concat vterm-tmux-default-session default-directory))))
+
+(defun vterm-tmux-default-binding ()
+  "Bind 't' in `project-prefix-map' to `vterm-tmux-project'."
+  (bind-key 'project-prefix-map (kbd "t") 'vterm-tmux-project))
 
 (provide 'vterm-tmux)
 ;;; vterm-tmux.el ends here
