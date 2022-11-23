@@ -1,32 +1,51 @@
 #+title: vterm-tmux: Connect to TMux sessions anywhere.
 #+author: Oliver Mead <olivermead@olivermead.xyz>
 
-An extension of `multi-vterm.el', providing persistent terminal access
+Persistent terminals for your projects and general use.
+
+An extension of =multi-vterm.el=, providing persistent terminal access
 through TMux (optionally over SSH using TRAMP).
 
-* TODO Installation
+* Installation
+This package is not yet in any packaging repositories, has not undergone
+any review except for my own purposes, and should be considered to be in
+a pre-release state.
+
+Should you still wish to try it:
++ Install the [[Dependencies]]
++ Clone [this] repository
++ And either:
+  - =(load ...)= the =vterm-tmux.el= file explicitly.
+  - Or move/symlink =vterm-tmux.el= into your load path and =(require 'vterm-tmux)=.
+
 ** Dependencies
-+ `vterm'
-+ `multi-vterm'
++ =vterm=
++ =multi-vterm=
 
 * Usage
 This package provides /one/ command:
-+ `vterm-tmux' Attach to a tmux session.
-The raw prefix argument will indicate that the `default-directory' must
-be set before attaching to the session. This operation supports
-TRAMP paths.
++ =vterm-tmux= Attach to a tmux session.
+  The raw prefix argument will indicate that the =default-directory= must
+  be set before attaching to the session. This operation supports
+  TRAMP paths.
++ =vterm-tmux-project= Attach to the current project's tmux session.
+  (project root is determined by =(project-root (project-current))=)
 
 ** Configuration
 This package may be customised through the following variables:
-+ `vterm-tmux-default-session' The default name for a tmux session
-+ `vterm-tmux-default-hostname' The default (host)name for local
++ =vterm-tmux-default-session= The default name for a tmux session
++ =vterm-tmux-default-hostname= The default (host)name for local
   connections
-+ `vterm-tmux-connection-method' The tmux command used to connect to
++ =vterm-tmux-connection-method= The tmux command used to connect to
   the session
-+ `vterm-tmux-env' A list of environment variables to explicitly pass
++ =vterm-tmux-env= A list of environment variables to explicitly pass
   to the shell
-+ `vterm-tmux-buffer-name-format' Function of HOSTNAME and SESSION to
++ =vterm-tmux-buffer-name-format= Function of HOSTNAME and SESSION to
   return the string to be used as
+
+*** Binding for =vterm-tmux-project=
+This command's default binding is =<project-prefix> t=, but is not
+bound by default. Call =vterm-tmux-default-binding= to bind it.
 
 * Acknowledgements
 + Todd Goodall <tgoodall@utexas.edu>, for inspiration in the form of
