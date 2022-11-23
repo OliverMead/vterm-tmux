@@ -159,9 +159,8 @@ conforming to TRAMP file-name syntax (including multi-hop)"
          nil))
 
   (let* ((default-directory (file-name-directory (or dir default-directory)))
-         (filename-tramp (condition-case err
-                             (tramp-dissect-file-name default-directory)
-                           (error nil)))
+         (filename-tramp (when (tramp-tramp-file-p default-directory)
+                             (tramp-dissect-file-name default-directory)))
          (hostname (if filename-tramp
                        (tramp-file-name-host filename-tramp)
                      vterm-tmux-default-hostname))
