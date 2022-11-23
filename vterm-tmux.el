@@ -50,9 +50,11 @@
 ;; This package may be customised through the following variables:
 ;; `vterm-tmux-default-session' The default name for a tmux session
 ;; `vterm-tmux-default-hostname' The default (host)name for local connections
+;;     (this does not have to be valid on a network, it is only used for the buffer name)
 ;; `vterm-tmux-connection-method' The tmux command used to connect to the session
 ;; `vterm-tmux-env' A list of environment variables to explicitly pass to the shell
-;; `vterm-tmux-buffer-name-format' Function of HOSTNAME and SESSION to return the string to be used as
+;; `vterm-tmux-buffer-name-format' Function of HOSTNAME and SESSION to return the string to be
+;;     used as the buffer name for terminals created by this package.
 
 ;;; Acknowledgements:
 ;; Todd Goodall <tgoodall@utexas.edu>,
