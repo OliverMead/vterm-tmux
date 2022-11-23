@@ -6,6 +6,17 @@ Persistent terminals for your projects and general use.
 An extension of =multi-vterm.el=, providing persistent terminal access
 through TMux (optionally over SSH using TRAMP).
 
+* Table of Contents                                                   :TOC_3:
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+- [[#installation][Installation]]
+  - [[#dependencies][Dependencies]]
+- [[#usage][Usage]]
+  - [[#configuration][Configuration]]
+    - [[#binding-for-vterm-tmux-project][Binding for =vterm-tmux-project=]]
+- [[#acknowledgements][Acknowledgements]]
+
 * Installation
 This package is not yet in any packaging repositories, has not undergone
 any review except for my own purposes, and should be considered to be in
