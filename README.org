@@ -12,7 +12,7 @@ any review except for my own purposes, and should be considered to be in
 a pre-release state.
 
 Should you still wish to try it:
-+ Install the [[Dependencies]]
++ Install the [[#Dependencies][dependencies]].
 + Clone [this] repository
 + And either:
   - =(load ...)= the =vterm-tmux.el= file explicitly.
