@@ -127,7 +127,7 @@ SESSION: the name of the buffer's TMux session."
 TERM indicates the name for the new terminal
 SESSION indicates the tmux session to attach to"
   (let ((vterm-buffer-name-string (concat "*" term "*"))
-        (tmux-command (concat "( touch p1; exec </dev/tty; exec <&1; touch p2; "
+        (tmux-command (concat "( exec </dev/tty; exec <&1;"
                               (vterm-tmux-env) " tmux "
                               vterm-tmux-connection-method " "
                               session " )")))
