@@ -49,6 +49,23 @@ This package may be customised through the following variables:
 This command's default binding is =<project-prefix> t=, but is not
 bound by default. Call =vterm-tmux-default-binding= to bind it.
 
+* Hacks
+** Remote Sessions
+Previously, this package would rely on some specific behaviour of
+vterm when running over TRAMP. At some point, this behaviour changed,
+such that attempting to run =vterm-tmux= with a remote
+=default-directory= would yield a regular vterm buffer, with no TMux
+running. Why? Because of a longstanding bug in TMux, which happened to
+be avoided by the older versions of vterm and TRAMP.
+
+*** The Fix
+This version of =vterm-tmux= unfortunately has to send the command to
+launch TMux to the terminal as if the user had typed it in. As a
+result, closing the remote terminal involves sending =C-d C-d= to
+first exit TMux, then exit the actual vterm session. I do not know if
+or when this change can be reverted to the desired behaviour of the
+vterm session closing with the TMux session.
+
 * Acknowledgements
 + Todd Goodall <tgoodall@utexas.edu>, for inspiration in the form of
   (the seemingly defunct) [[https://github.com/beyondmetis/multi-term-tmux][multi-term-tmux.el]].

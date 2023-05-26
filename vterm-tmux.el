@@ -4,7 +4,7 @@
 
 ;; Author: Oliver J. Mead <olivermead@olivermead.xyz>
 ;; Keywords: terminals, convenience
-;; Version: 0.3.2
+;; Version: 0.4.0
 ;; Package-Requires (vterm multi-vterm)
 ;; URL: https://github.com/OliverMead/vterm-tmux
 
